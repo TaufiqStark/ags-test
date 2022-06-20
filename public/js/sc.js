@@ -19,10 +19,10 @@ function correction(e) {
     const form = new FormData();
     const btnCheck = $(this).find(`button:submit`);
     const loading = new Loading(btnCheck, 'Wait..'); 
-    loading.set();
     form.append('_token', this[0].value);
     form.append('chars_id', charsId);
     form.append('choose', char.val());
+    loading.set();
     fetch(`/chooses/${chooseId}`, {
         method: 'post',
         body: form,
